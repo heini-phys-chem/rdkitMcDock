@@ -2,7 +2,7 @@
 
 This code takes a `Host` molecule and a `Guest` molecule, reads them in, optimizes the geometries, merge them into the same `system`, moves both to the origin, and then performs
 an MC simulation by rotating the `Guest` molecule and optimizing (L-BFGS) both geometries using ASE and the xTB calculator.\
-\
+
 ## Installation:
 Conda needs to be installed on your system. Then:
 
