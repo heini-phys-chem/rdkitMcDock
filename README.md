@@ -36,7 +36,7 @@ This path is hardcoded wherever you install it. To run McDock you need to change
 ```
 change `~/workcopies/` to the path where you isntalled it!
 
-## Run mcDOck
+## Run mcDock
 Before running you need to change the memory default options of xTB using following command in your cmd line and also make a directory called directory:
 ```
 ulimit -s unlimited
