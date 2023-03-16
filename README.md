@@ -48,5 +48,5 @@ Then you can run mcDock using following command:
 ```
 forcefield is obsolete but at the moment necessary...
 
-## mcDOck Workflow
+## mcDock Workflow
 ![alt text](figs/mcDock-workflow.png)
