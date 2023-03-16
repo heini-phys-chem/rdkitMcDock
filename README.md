@@ -47,3 +47,6 @@ Then you can run mcDock using following command:
 ./mcDock_rdkit.py --ligand small_conformer.sdf --target PA_hexamer.sdf  --forceField UFF --trajectories 3 --steps 15 --temperature 0.3
 ```
 forcefield is obsolete but at the moment necessary...
+
+## mcDOck Workflow
+![alt text](figs/mcDock-workflow.png)
