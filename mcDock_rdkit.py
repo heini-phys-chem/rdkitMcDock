@@ -104,10 +104,10 @@ def main():
     # For every conformer loop over number of trajectories
     for n in range(int(trajectories)):
         # translate molecule
-        #direction = random_vector()
-        #com = get_com(ligand)
-        #temp = direction * 4.0 - com
-        #move_molecule(ligand, temp)
+        direction = random_vector()
+        com = get_com(ligand)
+        temp = direction * 4.0 - com
+        move_molecule(ligand, temp)
 
         # rotate molecule (Guest)
         rot = random_vector()
@@ -135,7 +135,7 @@ def main():
         for step in range(int(steps)):
             move = random_vector()
             move *= random_length()
-            #move_molecule(mol_ligand, move, startid=startid, endid=endid)
+            move_molecule(mol_ligand, move, startid=startid, endid=endid)
 
             rot   = random_vector()
             theta = random_angle()
@@ -143,6 +143,7 @@ def main():
 
 
             #e = AllChem.UFFGetMoleculeForceField(mol_ligand).CalcEnergy()
+
             e = calc_energy_xTB(mol_ligand)
 
             delta_e = e - energy_old

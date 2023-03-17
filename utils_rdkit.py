@@ -148,7 +148,7 @@ def minimize_molecule_xTB(mol):
     mol_ase.calc = calc
 
     dyn = BFGS(mol_ase)
-    dyn.run(fmax=0.50)
+    dyn.run(fmax=0.05)
 
     e = mol_ase.get_potential_energy()
 
