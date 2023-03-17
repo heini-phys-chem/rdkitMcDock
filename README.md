@@ -50,3 +50,6 @@ forcefield is obsolete but at the moment necessary...
 
 ## mcDock Workflow
 ![alt text](figs/mcDock-workflow.png)
+
+## mcDock Result example
+![alt text](figs/all.gif)
