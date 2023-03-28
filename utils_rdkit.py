@@ -154,6 +154,7 @@ def minimize_molecule_xTB(mol):
 
     write("run_min.xyz", mol_ase)
 
+    # NOTE: replace '~/workcopies/' below with the path where you cloned the xyz2mol repository
     cmd = "python ~/workcopies/xyz2mol/xyz2mol.py run_min.xyz -o sdf > run_min.sdf"
     os.system(cmd)
 

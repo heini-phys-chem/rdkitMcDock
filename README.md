@@ -9,7 +9,7 @@ Conda needs to be installed on your system. Then:
 - create a conda environment (here it's called McDock)
 - activate the environment
 - install requirements (openbabel, RdKit, ASE, xTB (with python wrappers), numpy, xyz2mol)
-- xyz2mol also needs to be installed from source (from github)
+- xyz2mol also needs to be present locally (cloned from github) to fix a problem with reading xyz files
 
 copy paste the commands after the $ sign to your terminal
 
@@ -24,20 +24,34 @@ copy paste the commands after the $ sign to your terminal
 (McDock) $ conda install -c conda-forge xyz2mol
 ```
 
-To use xyz2mol clone the git repository:
+To fix and use xyz2mol clone the git repository:
 ```
 git clone https://github.com/jensengroup/xyz2mol
 ```
-cd into the directory and type `make`
+cd into the directory
 ```
 cd xyz2mol
+```
+Now, change line 550 of xyz2mol.py from
+```
+550                 atomic_symbol, x, y, z = line.split()
+```
+to
+```
+550                 atomic_symbol, x, y, z = line.split()[:4]
+```
+This is to fix a problem where the energies are included in the xyz file, causing the split to fail. We can safely ignore the energies since we recompute them anyway.
+
+Finally, type `make`
+```
 make
 ```
-This path is hardcoded wherever you install it. To run McDock you need to change line 157 in utils_rdkit.py to the path where you installed xyz2mol.
+
+The xyz2mol path is hardcoded wherever you cloned it. To run McDock you need to change line 158 in utils_rdkit.py to the path where you cloned the xyz2mol repository.
 ```
-157     cmd = "python ~/workcopies/xyz2mol/xyz2mol.py run_min.xyz -o sdf > run_min.sdf"
+158     cmd = "python ~/workcopies/xyz2mol/xyz2mol.py run_min.xyz -o sdf > run_min.sdf"
 ```
-change `~/workcopies/` to the path where you installed it!
+change `~/workcopies/` to the path where you cloned xyz2mol!
 
 ## Run mcDock
 Before running you need to change the memory default options of xTB using following command in your cmd line and also make a directory called directory:
