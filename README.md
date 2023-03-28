@@ -8,20 +8,23 @@ Conda needs to be installed on your system. Then:
 
 - create a conda environment (here it's called McDock)
 - activate the environment
-- install requirements (RdKit, ASE, xTB, numpy)
-- xyz2mol needs to be installed from source (from github)
+- install requirements (openbabel, RdKit, ASE, xTB (with python wrappers), numpy, xyz2mol)
+- xyz2mol also needs to be installed from source (from github)
 
 copy paste the commands after the $ sign to your terminal
 
 ```
 (base)   $ conda create -name McDock
 (base)   $ conda activate McDock
-(McDOck) $ conda install -c anaconda numpy
-(McDock) $ conda install -c conda-forge xtb
-(McDOck) $ conda install -c conda-forge ase
-(McDock) $ conda install -c rdkit rdki
+(McDock) $ conda install -c anaconda numpy
+(McDock) $ conda install -c conda-forge openbabel
+(McDock) $ conda install -c conda-forge xtb xtb-python
+(McDock) $ conda install -c conda-forge ase
+(McDock) $ conda install -c conda-forge rdkit
+(McDock) $ conda install -c conda-forge xyz2mol
 ```
-To install xyz2mol clone the git repository:
+
+To use xyz2mol clone the git repository:
 ```
 git clone https://github.com/jensengroup/xyz2mol
 ```
@@ -30,11 +33,11 @@ cd into the directory and type `make`
 cd xyz2mol
 make
 ```
-This path is hardcoded wherever you install it. To run McDock you need to change line 157 in utils_rdkit.py to the path where you isntalled xyz2mol
+This path is hardcoded wherever you install it. To run McDock you need to change line 157 in utils_rdkit.py to the path where you installed xyz2mol.
 ```
 157     cmd = "python ~/workcopies/xyz2mol/xyz2mol.py run_min.xyz -o sdf > run_min.sdf"
 ```
-change `~/workcopies/` to the path where you isntalled it!
+change `~/workcopies/` to the path where you installed it!
 
 ## Run mcDock
 Before running you need to change the memory default options of xTB using following command in your cmd line and also make a directory called directory:
